@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://56kostxyvime"]
+
+[ext_resource type="PackedScene" uid="uid://chvcf8m332ldg" path="res://UI Elements/CreateNewReflectionButton.tscn" id="1_fqx84"]
+[ext_resource type="Script" path="res://level/Reflections/calendar.gd" id="1_i3ast"]
+[ext_resource type="PackedScene" uid="uid://cm0noc1qpujir" path="res://level/Reflections/calendar_view.tscn" id="3_q2ajd"]
+[ext_resource type="PackedScene" uid="uid://cbgkbhjp2l4w2" path="res://UI Elements/navigation_bar_reflections.tscn" id="4_g0ngw"]
+
+[node name="Calendar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i3ast")
+
+[node name="CalendarDemo" parent="." instance=ExtResource("3_q2ajd")]
+layout_mode = 1
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 6.0
+offset_bottom = -1.0
+
+[node name="CreateNewReflectionButton" parent="." instance=ExtResource("1_fqx84")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 532.0
+offset_top = 872.0
+offset_right = 633.0
+offset_bottom = 972.0
+
+[node name="BackButton" type="Button" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 415.0
+offset_top = 1171.0
+offset_right = 675.0
+offset_bottom = 1223.0
+text = "Back"
+
+[node name="NavigationBar" parent="." instance=ExtResource("4_g0ngw")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_left = 4.0
+offset_top = -108.0
+offset_right = 4.0
+offset_bottom = -108.0
+grow_vertical = 0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

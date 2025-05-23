@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://doj8limo5rqdp"]
+
+[ext_resource type="Script" path="res://level/addActivity/todays_tasks.gd" id="1_8a0xi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1s2m"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_color = Color(0.0313726, 0.741176, 0.741176, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+shadow_color = Color(0, 0, 0, 0)
+
+[node name="TodaysTasks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996538, 1)
+script = ExtResource("1_8a0xi")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_right = 720.0
+offset_bottom = 389.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a1s2m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Todays Tasks"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 300)
+layout_mode = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(720, 300)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+alignment = 1

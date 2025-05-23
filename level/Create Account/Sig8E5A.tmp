@@ -1,0 +1,139 @@
+[gd_scene load_steps=2 format=3 uid="uid://h6ye07mkmemd"]
+
+[ext_resource type="Script" path="res://level/Create Account/signup.gd" id="1_xw51h"]
+
+[node name="Signup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xw51h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -594.0
+offset_right = 341.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Header" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.466667, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.466667, 0, 1)
+theme_override_constants/outline_size = 4
+text = "Create an account"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="Header" type="Label" parent="VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Welcome!
+Please enter your information"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Name label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_font_sizes/font_size = 25
+text = "Name"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_bottom = 20
+
+[node name="NameLineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Email label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_font_sizes/font_size = 25
+text = "E-mail
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_bottom = 20
+
+[node name="EmailLineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer2/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 2
+
+[node name="Password" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_font_sizes/font_size = 25
+text = "Password
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_bottom = 20
+
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer2/MarginContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 2
+secret = true
+
+[node name="SignupButton" type="Button" parent="VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Sign up"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_bottom = 20
+
+[node name="Or" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Already have an account?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="BackToLoginButton" type="Button" parent="VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sign in here"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/SignupButton" to="." method="_on_signup_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer3/BackToLoginButton" to="." method="_on_back_to_login_button_pressed"]

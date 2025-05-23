@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://j0cgw6nsdoha"]
+
+[ext_resource type="Script" path="res://UI Elements/go_to_activities.gd" id="1_fip5o"]
+[ext_resource type="Texture2D" uid="uid://iey0yeoa4fvr" path="res://UI Elements/Icons/PlusIcon.png" id="2_a67jr"]
+
+[node name="CreateNewActivity" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fip5o")
+
+[node name="CreateActivity" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+icon = ExtResource("2_a67jr")
+icon_alignment = 1
+
+[connection signal="pressed" from="CreateActivity" to="." method="_on_create_activity_pressed"]

@@ -1,0 +1,149 @@
+[gd_scene load_steps=15 format=4 uid="uid://nl8o3cnbgeb0"]
+
+[ext_resource type="PackedScene" uid="uid://xea3uewcsylu" path="res://level/environment/floor.tscn" id="1_0jcbq"]
+[ext_resource type="PackedScene" uid="uid://bn18vsb6t534u" path="res://level/environment/walls.tscn" id="2_7bq6m"]
+[ext_resource type="PackedScene" uid="uid://dlkw37ca5dgoj" path="res://scenes/pet/pet.tscn" id="3_cf47t"]
+[ext_resource type="PackedScene" uid="uid://x678c4pycanv" path="res://level/UI.tscn" id="6_om6pv"]
+[ext_resource type="PackedScene" uid="uid://betmpewrsr2ip" path="res://UI Elements/Greetings.tscn" id="7_33hxe"]
+[ext_resource type="PackedScene" uid="uid://crx1j1t4nnqmm" path="res://scenes/furniture/cardboardBox.tscn" id="7_pvirc"]
+[ext_resource type="PackedScene" uid="uid://br0rht0uj24yn" path="res://scenes/PlantSprite/PlantScene.tscn" id="8_0yepd"]
+[ext_resource type="Texture2D" uid="uid://ct4c76ornvi3a" path="res://assets/UI Icons/StarLevel.png" id="9_6qnx0"]
+[ext_resource type="FontFile" uid="uid://dn2qsfvwo25dt" path="res://assets/Animations/SuperBubble-Rpaj3.ttf" id="9_cpebc"]
+[ext_resource type="Texture2D" uid="uid://mldkgwxhnvix" path="res://assets/UI Icons/Portrait.png" id="10_er057"]
+[ext_resource type="PackedScene" uid="uid://doj8limo5rqdp" path="res://level/addActivity/TodaysTasks.tscn" id="12_i01nv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0b3lc"]
+vertices = PackedVector2Array(456.047, 68.0078, 46.9219, 301.531, -360.719, 76.3203, 31.2578, -124.891)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(44, -98, 404, 82, 49, 274, -316, 82)])
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5v5q"]
+bg_color = Color(0.968627, 0.964706, 0.772549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni1bw"]
+bg_color = Color(1, 0.6, 0.0784314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Level" type="Node2D" groups=["level"]]
+y_sort_enabled = true
+position = Vector2(253, 458)
+metadata/_edit_vertical_guides_ = [-230.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(107, 182)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(58, 23)
+navigation_polygon = SubResource("NavigationPolygon_0b3lc")
+
+[node name="Floor" parent="." instance=ExtResource("1_0jcbq")]
+z_index = -5
+tile_map_data = PackedByteArray("AAD//wQABgAAAAAAAAD//wMABwAAAAAAAAD//wIABgAAAAAAAAD//wEABwAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAAD///7/BgAAAAAAAAAAAP7/BwAAAAAAAAAAAP//BgAAAAAAAAAAAAAABwAAAAAAAAAAAAEABgAAAAAAAAAAAAIABwAAAAAAAAAAAAMABgAAAAAAAAAAAAQABwAAAAAAAAABAAQABgAAAAAAAAABAAMABwAAAAAAAAABAAIABgAAAAAAAAABAAEABwAAAAAAAAABAAAABgAAAAAAAAABAP//BwAAAAAAAAABAP7/BgAAAAAAAAACAAQABwAAAAAAAAACAAMABgAAAAAAAAACAAIABwAAAAAAAAACAAEABgAAAAAAAAACAAAABwAAAAAAAAACAP//BgAAAAAAAAACAP7/BwAAAAAAAAADAAQABgAAAAAAAAADAAMABwAAAAAAAAADAAIABgAAAAAAAAADAAEABwAAAAAAAAADAAAABgAAAAAAAAADAP//BwAAAAAAAAADAP7/BgAAAAAAAAAEAAMABgAAAAAAAAAEAAIABwAAAAAAAAAEAAEABgAAAAAAAAAEAP//BgAAAAAAAAAEAP7/BwAAAAAAAAAEAAQABwAAAAAAAAAEAAAABwAAAAAAAAAFAAQABgAAAAAAAAAFAAIABgAAAAAAAAAFAAAABgAAAAAAAAAFAP7/BgAAAAAAAAAFAAMABwAAAAAAAAAFAAEABwAAAAAAAAAFAP//BwAAAAAAAAA=")
+
+[node name="Walls" parent="." instance=ExtResource("2_7bq6m")]
+z_index = -5
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AAADAPz/BAAAAAAAAAACAPz/BAAAAAAAAAABAPz/BAAAAAAAAAAAAPz/BAAAAAAAAAD///z/BAAAAAAAAAD+//z/BAAAAAAAAAD9/wIABAAAAAAAABD9/wEABAAAAAAAABD9/wAABAAAAAAAABD9////BAAAAAAAABD9//7/BAAAAAAAABD9//3/BAAAAAAAABD9//z/BQAAAAAAAAA=")
+
+[node name="cardboardBox" parent="." instance=ExtResource("7_pvirc")]
+position = Vector2(243, 124)
+
+[node name="cardboardBox2" parent="." instance=ExtResource("7_pvirc")]
+position = Vector2(58, 23)
+identifier = 2
+
+[node name="cardboardBox3" parent="." instance=ExtResource("7_pvirc")]
+position = Vector2(-6, 125)
+identifier = 3
+
+[node name="Pet" parent="." instance=ExtResource("3_cf47t")]
+z_index = 100
+position = Vector2(62, 124)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_om6pv")]
+
+[node name="ItemPlaceholder" type="Node2D" parent="."]
+position = Vector2(-6, 5)
+
+[node name="PlantScene" parent="." instance=ExtResource("8_0yepd")]
+z_index = 90
+position = Vector2(361, 72)
+scale = Vector2(0.05, 0.05)
+
+[node name="Greetings" parent="." instance=ExtResource("7_33hxe")]
+z_index = 900
+offset_left = -30.0
+offset_top = -416.0
+offset_right = -30.0
+offset_bottom = -416.0
+metadata/_edit_use_anchors_ = true
+
+[node name="levelLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 1
+offset_left = 325.0
+offset_top = -341.0
+offset_right = 395.0
+offset_bottom = -299.0
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.772549, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("9_cpebc")
+theme_override_font_sizes/font_size = 25
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+offset_left = 306.0
+offset_top = -379.0
+offset_right = 1488.0
+offset_bottom = 803.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_6qnx0")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+top_level = true
+offset_left = 222.0
+offset_top = 120.0
+offset_right = 584.0
+offset_bottom = 157.0
+theme_override_styles/background = SubResource("StyleBoxFlat_c5v5q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ni1bw")
+value = 50.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -234.0
+offset_top = -435.0
+offset_right = 948.0
+offset_bottom = 747.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("10_er057")
+metadata/_edit_use_anchors_ = true
+
+[node name="TodaysTasks" parent="." instance=ExtResource("12_i01nv")]
+offset_left = -251.0
+offset_top = 329.0
+offset_right = -251.0
+offset_bottom = 329.0
+metadata/_edit_use_anchors_ = true

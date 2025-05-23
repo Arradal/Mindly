@@ -1,0 +1,160 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ki5txiyk4kw"]
+
+[ext_resource type="Script" path="res://level/addActivity/add_activity.gd" id="1_kgj1e"]
+
+[node name="AddActivity" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kgj1e")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Add activity"
+horizontal_alignment = 1
+
+[node name="NameActivity" type="Label" parent="."]
+layout_mode = 2
+text = "Name of activity"
+
+[node name="EditNameActivity" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActivityType" type="Label" parent="."]
+layout_mode = 2
+text = "Activity type"
+
+[node name="OptionActivity" type="OptionButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+allow_reselect = true
+item_count = 6
+popup/item_0/text = "Physical"
+popup/item_1/text = "Psychological and emotional"
+popup/item_1/id = 1
+popup/item_2/text = "Social"
+popup/item_2/id = 2
+popup/item_3/text = "Leisure"
+popup/item_3/id = 3
+popup/item_4/text = "Spiritual"
+popup/item_4/id = 4
+popup/item_5/text = "Other"
+popup/item_5/id = 5
+
+[node name="IntentionActivity" type="Label" parent="."]
+layout_mode = 2
+text = "Intention of activity"
+
+[node name="ActivityDescription" type="TextEdit" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+placeholder_text = "I am doing this activity because..."
+
+[node name="TimeTo" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ActivityTime" type="Label" parent="TimeTo"]
+layout_mode = 2
+text = "When should we do this activity?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimeTo"]
+layout_mode = 2
+
+[node name="Month" type="OptionButton" parent="TimeTo/HBoxContainer"]
+layout_mode = 2
+item_count = 12
+popup/item_0/text = "January"
+popup/item_1/text = "February"
+popup/item_1/id = 1
+popup/item_2/text = "March"
+popup/item_2/id = 2
+popup/item_3/text = "April"
+popup/item_3/id = 3
+popup/item_4/text = "May"
+popup/item_4/id = 4
+popup/item_5/text = "June"
+popup/item_5/id = 5
+popup/item_6/text = "July"
+popup/item_6/id = 6
+popup/item_7/text = "August"
+popup/item_7/id = 7
+popup/item_8/text = "September"
+popup/item_8/id = 8
+popup/item_9/text = "October"
+popup/item_9/id = 9
+popup/item_10/text = "November"
+popup/item_10/id = 10
+popup/item_11/text = "December"
+popup/item_11/id = 11
+
+[node name="Date" type="LineEdit" parent="TimeTo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Date"
+
+[node name="Time" type="LineEdit" parent="TimeTo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Time"
+
+[node name="EstimatedTime" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ActivityTime" type="Label" parent="EstimatedTime"]
+layout_mode = 2
+text = "How long will this task take for us to complete?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EstimatedTime"]
+layout_mode = 2
+
+[node name="numberForActivityTime" type="LineEdit" parent="EstimatedTime/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "1"
+
+[node name="typeForActivityTime" type="OptionButton" parent="EstimatedTime/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Minutes"
+popup/item_1/text = "Hours"
+popup/item_1/id = 1
+
+[node name="RepeatTask" type="Label" parent="."]
+layout_mode = 2
+text = "Repeat task?"
+
+[node name="OptionRepeat" type="OptionButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "No"
+popup/item_1/text = "Daily"
+popup/item_1/id = 1
+popup/item_2/text = "Weekly"
+popup/item_2/id = 2
+popup/item_3/text = "Every two weeks"
+popup/item_3/id = 3
+popup/item_4/text = "Monthly"
+popup/item_4/id = 4
+
+[node name="ErrorLabel" type="Label" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="submitButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="cancelButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="pressed" from="HBoxContainer/submitButton" to="." method="_on_submit_button_pressed"]

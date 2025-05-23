@@ -1,0 +1,190 @@
+[gd_scene load_steps=8 format=3 uid="uid://65re52t1r0ej"]
+
+[ext_resource type="Script" path="res://level/Login/Login.gd" id="1_4l8ug"]
+[ext_resource type="FontFile" uid="uid://ceffo1wv8r3au" path="res://Styling/Quicksand-VariableFont_wght.ttf" id="2_5pti5"]
+
+[sub_resource type="FontVariation" id="FontVariation_c4jwk"]
+base_font = ExtResource("2_5pti5")
+variation_opentype = {
+2003265652: 700
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvqhc"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 0.6, 0.0784314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_0vo7l"]
+variation_opentype = {
+2003265652: 500
+}
+spacing_top = 3
+spacing_bottom = 3
+
+[sub_resource type="FontVariation" id="FontVariation_r46s4"]
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6vuv"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.6, 0.0784314, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Authentication" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_4l8ug")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = -326.0
+offset_top = -545.0
+offset_right = 318.0
+offset_bottom = 565.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Header" type="Label" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.466667, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.466667, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_c4jwk")
+text = "Login"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="StateLabel" type="Label" parent="VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Welcome!
+Please log in to continue"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Username" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_font_sizes/font_size = 25
+text = "Username"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_bottom = 30
+
+[node name="LineEditEmail" type="LineEdit" parent="VBoxContainer/VBoxContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Password label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_font_sizes/font_size = 25
+text = "Password
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_bottom = 25
+
+[node name="LineEditPassword" type="LineEdit" parent="VBoxContainer/VBoxContainer2/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+secret = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hvqhc")
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Keep me logged in"
+
+[node name="LoginButton" type="Button" parent="VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = SubResource("FontVariation_0vo7l")
+text = "Log in"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="OrLabel" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Don't have an account yet?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Don't have an account yet?"
+
+[node name="CreateAccountButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_fonts/font = SubResource("FontVariation_r46s4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d6vuv")
+text = "Create an account"
+
+[connection signal="toggled" from="VBoxContainer/VBoxContainer2/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/CreateAccountButton" to="." method="_on_create_account_button_pressed"]

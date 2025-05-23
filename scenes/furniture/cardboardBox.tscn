@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://crx1j1t4nnqmm"]
+
+[ext_resource type="Script" path="res://scenes/furniture/cardboard_box.gd" id="1_txv2g"]
+[ext_resource type="Texture2D" uid="uid://dwqv4jgnam2lt" path="res://assets/furniture/Cardboard.png" id="2_7pwq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b15mj"]
+size = Vector2(60, 38)
+
+[node name="cardboardBox" type="Area2D" groups=["furniture"]]
+script = ExtResource("1_txv2g")
+
+[node name="interactibleDistance" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_b15mj")
+
+[node name="Cardboard" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.110544, 0.110544)
+texture = ExtResource("2_7pwq0")

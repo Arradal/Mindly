@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm0noc1qpujir"]
+
+[ext_resource type="Script" path="res://level/Reflections/calendar_view.gd" id="1_fnobq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1ki6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_15vha"]
+font_size = 30
+font_color = Color(0.254902, 0.282353, 0.32549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7y1g"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki45t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp3tx"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0313726, 0.741176, 0.741176, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li0ri"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_um5nj"]
+Button/styles/disabled = SubResource("StyleBoxFlat_ki45t")
+Button/styles/normal = SubResource("StyleBoxFlat_pp3tx")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/styles/normal = SubResource("StyleBoxFlat_li0ri")
+
+[node name="CalendarView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fnobq")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.945098, 0.976471, 1, 1)
+
+[node name="Padding" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CalendarComponents" type="HBoxContainer" parent="Padding"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="YearCalendarContainer" type="VBoxContainer" parent="Padding/CalendarComponents"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Padding/CalendarComponents/YearCalendarContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="MonthMinus" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/HBoxContainer"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_h1ki6")
+text = "<"
+
+[node name="YearLabel" type="Label" parent="Padding/CalendarComponents/YearCalendarContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Month + Year"
+label_settings = SubResource("LabelSettings_15vha")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MonthPlus" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/HBoxContainer"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7y1g")
+text = ">"
+
+[node name="MonthGrid" type="GridContainer" parent="Padding/CalendarComponents/YearCalendarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_um5nj")
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 7
+
+[connection signal="pressed" from="Padding/CalendarComponents/YearCalendarContainer/HBoxContainer/MonthMinus" to="." method="_on_month_minus_pressed"]
+[connection signal="pressed" from="Padding/CalendarComponents/YearCalendarContainer/HBoxContainer/MonthPlus" to="." method="_on_month_plus_pressed"]

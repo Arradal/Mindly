@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://ef128necw078"]
+
+[ext_resource type="PackedScene" uid="uid://j0cgw6nsdoha" path="res://level/addActivity/CreateNewActivityButton.tscn" id="1_nk0jc"]
+[ext_resource type="Script" path="res://level/addActivity/activityOverlook.gd" id="2_va77q"]
+[ext_resource type="PackedScene" uid="uid://cgjdco4h756h7" path="res://UI Elements/navigation_bar_task.tscn" id="4_ykqs6"]
+
+[node name="ActivityOverlook" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_va77q")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.997428)
+color = Color(0.945098, 0.976471, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 733.0
+offset_bottom = 1164.0
+scale = Vector2(0.974565, 1.01114)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Your activities"
+
+[node name="RightSide" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(520, 900)
+layout_mode = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RightSide"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/RightSide/MarginContainer"]
+layout_mode = 2
+
+[node name="CreateNewActivity" parent="." instance=ExtResource("1_nk0jc")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 598.0
+offset_top = 1042.0
+offset_right = 598.0
+offset_bottom = 1042.0
+size_flags_horizontal = 8
+
+[node name="NavigationBar2" parent="." instance=ExtResource("4_ykqs6")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_left = -1.0
+offset_top = -103.0
+offset_right = -1.0
+offset_bottom = -103.0
+grow_vertical = 0

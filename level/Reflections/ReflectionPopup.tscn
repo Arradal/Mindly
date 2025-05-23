@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://02fh6hff68jv"]
+
+[ext_resource type="Script" path="res://level/Reflections/ReflectionPopup.gd" id="1_boo3k"]
+[ext_resource type="Texture2D" uid="uid://dt0a4earw0atu" path="res://UI Elements/Cross.png" id="2_cqx2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj1nl"]
+bg_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54qfm"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0313726, 0.741176, 0.741176, 1)
+
+[node name="ReflectionPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_boo3k")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lj1nl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 265.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_54qfm")
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="ChosenDate" type="Label" parent="PanelContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.5
+offset_top = 15.0
+offset_right = 50.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Chosen Date"
+
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/ColorRect"]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 15.0
+offset_right = 586.0
+offset_bottom = 44.0
+texture_normal = ExtResource("2_cqx2l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NoReflections" type="Label" parent="PanelContainer/ColorRect"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 101.0
+offset_right = 87.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -176.0
+offset_right = 294.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(580, 430)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[connection signal="pressed" from="PanelContainer/ColorRect/CloseButton" to="." method="_on_close_button_pressed"]

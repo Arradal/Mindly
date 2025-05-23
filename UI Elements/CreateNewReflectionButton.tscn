@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://chvcf8m332ldg"]
+
+[ext_resource type="Script" path="res://UI Elements/create_new_reflection_button.gd" id="1_s6ns1"]
+[ext_resource type="Texture2D" uid="uid://iey0yeoa4fvr" path="res://UI Elements/Icons/PlusIcon.png" id="2_0jg5w"]
+
+[node name="CreateNewReflectionButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -642.0
+offset_bottom = -1211.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6ns1")
+
+[node name="CreateNewReflection" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 73.0
+offset_bottom = 63.0
+icon = ExtResource("2_0jg5w")
+icon_alignment = 1
+
+[connection signal="pressed" from="CreateNewReflection" to="." method="_on_create_new_reflection_pressed"]

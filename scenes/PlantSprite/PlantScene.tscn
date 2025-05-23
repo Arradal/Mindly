@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://br0rht0uj24yn"]
+
+[ext_resource type="Script" path="res://scenes/PlantSprite/PlantScene.gd" id="1_mcqlt"]
+[ext_resource type="Texture2D" uid="uid://njc21qox4th1" path="res://scenes/PlantSprite/Snake_plant_1.png" id="2_3yvjv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmxch"]
+radius = 451.807
+
+[node name="PlantScene" type="Area2D" groups=["furniture"]]
+script = ExtResource("1_mcqlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(53, 2)
+shape = SubResource("CircleShape2D_vmxch")
+
+[node name="PlantSprite" type="Sprite2D" parent="."]
+position = Vector2(-115, -270)
+texture = ExtResource("2_3yvjv")

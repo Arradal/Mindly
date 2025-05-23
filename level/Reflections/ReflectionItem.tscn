@@ -1,0 +1,152 @@
+[gd_scene load_steps=3 format=3 uid="uid://uvxo0j8nifoa"]
+
+[ext_resource type="Script" path="res://level/Reflections/ReflectionItem.gd" id="1_hydpd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgjb0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0313726, 0.741176, 0.741176, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ReflectionItem" type="Control"]
+custom_minimum_size = Vector2(0, 355)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -128.0
+offset_bottom = 355.0
+grow_horizontal = 2
+mouse_filter = 1
+script = ExtResource("1_hydpd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 577.0
+offset_bottom = 229.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_sgjb0")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_colors/font_outline_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Time of Creation:"
+
+[node name="Timestamp" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.215902, 0.215902, 0.215902, 1)
+theme_override_font_sizes/font_size = 25
+text = "Timestamp"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_colors/font_outline_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Mood:"
+
+[node name="Mood" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_font_sizes/font_size = 25
+text = "Mood"
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_colors/font_outline_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Reflection:"
+
+[node name="Reflection" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Reflection
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 234.0
+offset_bottom = 248.0
+theme_override_constants/margin_left = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+offset_right = 600.0
+offset_bottom = 795.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 588.0
+offset_bottom = 783.0

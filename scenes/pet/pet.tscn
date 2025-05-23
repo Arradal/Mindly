@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://dlkw37ca5dgoj"]
+
+[ext_resource type="Script" path="res://scenes/pet/pet.gd" id="1_pkgdi"]
+[ext_resource type="Texture2D" uid="uid://dx46odbp4x4e0" path="res://scenes/pet/1.png" id="2_iad1q"]
+[ext_resource type="Texture2D" uid="uid://bcy1d7xfdsfmo" path="res://scenes/pet/2.png" id="3_ltgui"]
+[ext_resource type="Texture2D" uid="uid://bfvcue04xmh17" path="res://scenes/pet/pet animations/Sitting_dark_1.png" id="3_xxrvy"]
+[ext_resource type="Texture2D" uid="uid://cl7pohviemkwe" path="res://scenes/pet/pet animations/Sitting_dark_2.png" id="4_fcm7x"]
+[ext_resource type="Texture2D" uid="uid://byvletska3m2f" path="res://scenes/pet/3.png" id="4_wuiqn"]
+[ext_resource type="Texture2D" uid="uid://cxqyak6avlufh" path="res://scenes/pet/4.png" id="5_hsx5b"]
+[ext_resource type="Texture2D" uid="uid://dkm173e7nnhld" path="res://scenes/pet/pet animations/Sitting_dark_3.png" id="5_lxca1"]
+[ext_resource type="Texture2D" uid="uid://ov5e74622ma5" path="res://scenes/pet/pet animations/Sitting_light_1.png" id="6_wu2h2"]
+[ext_resource type="Texture2D" uid="uid://bs5p2rr1htfwq" path="res://scenes/pet/pet animations/Sitting_light_2.png" id="7_hlqhn"]
+[ext_resource type="Texture2D" uid="uid://brfct783usu6c" path="res://scenes/pet/pet animations/Sitting_light_3.png" id="8_lri2b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8dsv"]
+radius = 19.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b574b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iad1q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xxrvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fcm7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxca1")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wu2h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hlqhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lri2b")
+}],
+"loop": true,
+"name": &"sit_light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iad1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ltgui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wuiqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hsx5b")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Pet" type="CharacterBody2D" groups=["pet"]]
+position = Vector2(0, 17)
+script = ExtResource("1_pkgdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+shape = SubResource("CircleShape2D_l8dsv")
+
+[node name="Pet_Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -65)
+scale = Vector2(0.333333, 0.333333)
+sprite_frames = SubResource("SpriteFrames_b574b")
+animation = &"sit"
+offset = Vector2(0, 70)
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+
+[node name="UpdateTargetTimer" type="Timer" parent="." groups=["pet"]]
+wait_time = 10.0
+autostart = true

@@ -1,0 +1,253 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb3biv4moclon"]
+
+[ext_resource type="Script" path="res://level/addActivity/activity_pop_up.gd" id="1_hepqt"]
+[ext_resource type="Texture2D" uid="uid://hqfla6b7d6il" path="res://assets/Mood Icons/smile.png" id="2_ajgyd"]
+[ext_resource type="Texture2D" uid="uid://dt0a4earw0atu" path="res://UI Elements/Cross.png" id="3_ud7fm"]
+[ext_resource type="PackedScene" uid="uid://b2us3j4gmoq8u" path="res://assets/Animations/XPGained.tscn" id="4_8cnfm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_miiil"]
+bg_color = Color(0.945098, 0.976471, 1, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p63wn"]
+bg_color = Color(0.909804, 0.960784, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqidv"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="ActivityPopUp2" type="Control"]
+z_index = 1000
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 107.0
+offset_top = 175.0
+offset_right = 107.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hepqt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1000
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -427.0
+offset_right = 213.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+z_index = 1000
+layout_mode = 0
+offset_left = -11.0
+offset_top = -8.0
+offset_right = 667.0
+offset_bottom = 252.0
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+z_index = 1000
+layout_mode = 0
+offset_left = -25.0
+offset_top = -384.0
+offset_right = 695.0
+offset_bottom = 896.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_miiil")
+
+[node name="Control" type="Control" parent="ColorRect"]
+z_index = 1000
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LoadingPanelContainer" type="PanelContainer" parent="ColorRect/Control"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -249.0
+offset_right = 665.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p63wn")
+
+[node name="Label" type="Label" parent="ColorRect/Control/LoadingPanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+text = "Loading..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Control"]
+z_index = 1000
+layout_mode = 0
+offset_top = -57.0
+offset_right = 678.0
+offset_bottom = -16.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="DeleteActivity" type="Button" parent="ColorRect/Control/HBoxContainer"]
+z_index = 1000
+custom_minimum_size = Vector2(178, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "Delete activity"
+
+[node name="EditActivity" type="Button" parent="ColorRect/Control/HBoxContainer"]
+z_index = 1000
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "Edit activity"
+
+[node name="CompletedActivity" type="Button" parent="ColorRect/Control/HBoxContainer"]
+z_index = 1000
+custom_minimum_size = Vector2(215, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "Complete activity"
+
+[node name="Control2" type="Control" parent="ColorRect"]
+z_index = 1000
+anchors_preset = 0
+offset_left = 11.0
+offset_right = 658.0
+offset_bottom = 196.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/Control2"]
+visible = false
+z_index = 1000
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 141.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Control2/MarginContainer"]
+z_index = 1000
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Control2/MarginContainer/HBoxContainer"]
+z_index = 1000
+layout_mode = 2
+texture = ExtResource("2_ajgyd")
+expand_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/Control2/MarginContainer/HBoxContainer"]
+z_index = 1000
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Activity" type="Label" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2"]
+z_index = 1000
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Activity Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TimeForActivity" type="Label" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+z_index = 1000
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_font_sizes/font_size = 25
+text = "Timestamp
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nqidv")
+
+[node name="MonthLabel" type="Label" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "month"
+
+[node name="DateLabel" type="Label" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "date"
+
+[node name="Description" type="RichTextLabel" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2"]
+z_index = 1000
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.215686, 0.215686, 0.215686, 1)
+text = "Activity description is parsed here"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2"]
+z_index = 1000
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+visible = false
+z_index = 1000
+layout_mode = 2
+text = "If task repeats then next task-date here"
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/Control2/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+visible = false
+z_index = 1000
+layout_mode = 2
+button_pressed = true
+
+[node name="CloseButton" type="TextureButton" parent="ColorRect"]
+z_index = 1000
+layout_mode = 0
+offset_left = 623.0
+offset_top = 10.0
+offset_right = 652.0
+offset_bottom = 39.0
+texture_normal = ExtResource("3_ud7fm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="XpGained" parent="." instance=ExtResource("4_8cnfm")]
+visible = false
+z_index = 4096
+position = Vector2(107, -353)
+scale = Vector2(0.6, 0.6)
+
+[node name="Avoid_early_clicks" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="ColorRect/Control/HBoxContainer/DeleteActivity" to="." method="_on_delete_activity_pressed"]
+[connection signal="pressed" from="ColorRect/Control/HBoxContainer/EditActivity" to="." method="_on_edit_activity_pressed"]
+[connection signal="pressed" from="ColorRect/Control/HBoxContainer/CompletedActivity" to="." method="_on_completed_activity_pressed"]
+[connection signal="pressed" from="ColorRect/CloseButton" to="." method="_on_close_button_pressed"]

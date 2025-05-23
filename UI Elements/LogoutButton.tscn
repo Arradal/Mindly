@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://du2802u220ud0"]
+
+[ext_resource type="Script" path="res://UI Elements/logout_button.gd" id="1_ittcv"]
+[ext_resource type="Texture2D" uid="uid://bj5xfdceqqax4" path="res://UI Elements/Icons/Log out button.png" id="2_fli1t"]
+
+[sub_resource type="SystemFont" id="SystemFont_wmlel"]
+subpixel_positioning = 0
+
+[node name="LogoutButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ittcv")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 1.0
+offset_right = 73.0
+offset_bottom = 67.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_fli1t")
+
+[node name="StateLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 24.0
+offset_top = 70.0
+offset_right = 89.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 0.6, 0.0784314, 1)
+theme_override_fonts/font = SubResource("SystemFont_wmlel")
+theme_override_font_sizes/font_size = 16
+text = "Log out"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

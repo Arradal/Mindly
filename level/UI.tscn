@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://x678c4pycanv"]
+
+[ext_resource type="Script" path="res://level/ui.gd" id="1_s8hbl"]
+[ext_resource type="PackedScene" uid="uid://dutlekoi8mo06" path="res://assets/Animations/LevelUpAnimation.tscn" id="2_10npn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onvxp"]
+bg_color = Color(0.945098, 0.976471, 1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_s8hbl")
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+transparent_bg = true
+size = Vector2i(720, 1280)
+theme_override_styles/panel = SubResource("StyleBoxFlat_onvxp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelUpAnimation" parent="PopupPanel/VBoxContainer" instance=ExtResource("2_10npn")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 8
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 8
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="PopupPanel/VBoxContainer/HBoxContainer/TextureButton" to="." method="OnItem1Selected"]
+[connection signal="pressed" from="PopupPanel/VBoxContainer/HBoxContainer/TextureButton2" to="." method="OnItem2Selected"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn18vsb6t534u"]
+
+[ext_resource type="Texture2D" uid="uid://dsea8kpn5m6yf" path="res://assets/tiles/wallRight512x1029.png" id="1_bevkn"]
+[ext_resource type="Texture2D" uid="uid://4mlxo2h4by60" path="res://assets/tiles/wall512x512.png" id="2_2v1ab"]
+[ext_resource type="Texture2D" uid="uid://cpyeebgqky68w" path="res://assets/tiles/Tegnebræt 1.png" id="5_l8x0w"]
+[ext_resource type="Texture2D" uid="uid://ca7h7d26lvlqs" path="res://assets/tiles/Hjørne.png" id="6_r7vus"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2b3vr"]
+texture = ExtResource("1_bevkn")
+texture_region_size = Vector2i(512, 1029)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kepaq"]
+texture = ExtResource("2_2v1ab")
+texture_region_size = Vector2i(512, 1029)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kod1r"]
+texture = ExtResource("5_l8x0w")
+texture_region_size = Vector2i(512, 1039)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akjia"]
+texture = ExtResource("6_r7vus")
+texture_region_size = Vector2i(512, 1039)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5w1pl"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(512, 256)
+sources/0 = SubResource("TileSetAtlasSource_2b3vr")
+sources/1 = SubResource("TileSetAtlasSource_kepaq")
+sources/4 = SubResource("TileSetAtlasSource_kod1r")
+sources/5 = SubResource("TileSetAtlasSource_akjia")
+
+[node name="Walls" type="TileMapLayer"]
+tile_set = SubResource("TileSet_5w1pl")
