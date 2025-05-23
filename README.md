@@ -14,7 +14,7 @@ The app was created to explore how design choices in digital mental health tools
 
 - **Gamified Interface** - Levels, experience points, and digital furniture rewards to maintain engagement.
 
-![Mindly](https://github.com/user-attachments/assets/e36c9cb8-67b6-4f38-bc35-44c8fe04acf8)
+  ![Mindly](https://github.com/user-attachments/assets/e36c9cb8-67b6-4f38-bc35-44c8fe04acf8)
 
 
 # Design Principles
@@ -37,6 +37,7 @@ If all of the above requirements have been met, you should be able to launch the
 
 # Authors
 This project is made by:
+
 Christian Midjord Holfelt, Anne Louise T. Hargrove & Maiken Hollerup Damm
 
 *All assets in this project are original*
