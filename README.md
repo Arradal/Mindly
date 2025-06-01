@@ -1,5 +1,5 @@
 # Mindly
-Mindly is a gamified mental health and self-care application developed for Android. It is designed as paart of a Master's thesis in Interaction Design at Aalborg University. Mindly acts as a virtual companion that encourages mindfulness, daily structure, and self-reflection.
+Mindly is a gamified mental health and self-care application developed for Android. It is designed as part of a Master's thesis in Interaction Design at Aalborg University. Mindly acts as a virtual companion that encourages mindfulness, daily structure, and self-reflection.
 
 The app was created to explore how design choices in digital mental health tools influence user engagement, satisfaction, and well-being. Through a one-week field study, Mindly was studied by a group of participants to evaluate four design implications for mental health support.
 
